@@ -8,6 +8,17 @@ const addProject = (name) => {
   }
   const project = new Project(name);
   input.value = '';
-  console.log(project);
+  const projects = localStorage.getItem('projects');
+  if (projects) {
+    const projectsArray = JSON.parse(projects);
+    projectsArray.push(project);
+    localStorage.setItem('projects', JSON.stringify(projectsArray));
+  } else {
+    const projectsArray = [];
+    projectsArray.push(project);
+    localStorage.setItem('projects', JSON.stringify(projectsArray));
+  }
+
+  console.log(localStorage.getItem('projects'));
 }
 export default addProject;
