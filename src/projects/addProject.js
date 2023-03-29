@@ -1,5 +1,5 @@
 import Project from './Project';
-import projects from './projects';
+import displayProjects from './projects';
 const addProject = (name) => {
   const input = document.querySelector('#project-input');
   name = input.value;
@@ -19,6 +19,8 @@ const addProject = (name) => {
     projectsArray.push(project);
     localStorage.setItem('projects', JSON.stringify(projectsArray));
   }
-  console.log(localStorage.getItem('projects'));
+  const projectsContainer = document.querySelector('#projects-container');
+  projectsContainer.remove();
+  displayProjects();
 }
 export default addProject;

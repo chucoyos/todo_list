@@ -5,6 +5,7 @@ const projects =  () => {
 
   const projects = JSON.parse(localStorage.getItem('projects'));
   const projectsContainer = document.createElement('div');
+  projectsContainer.setAttribute('id', 'projects-container');
   const projectsList = document.createElement('ul');
   for (let project of projects) {
     const projectItem = document.createElement('li');
