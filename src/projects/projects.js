@@ -1,10 +1,19 @@
 const projects =  () => {
-  const projects = []
-  const projectContainer = document.createElement('div');
-  projectContainer.classList.add('projects');
-  projectContainer.innerHTML = 'Projects';
+  if (!localStorage.getItem('projects')) {
+    localStorage.setItem('projects', JSON.stringify([]));
+  }
+
+  const projects = JSON.parse(localStorage.getItem('projects'));
+  const projectsContainer = document.createElement('div');
+  const projectsList = document.createElement('ul');
+  for (let project of projects) {
+    const projectItem = document.createElement('li');
+    projectItem.textContent = project.name;
+    projectsList.appendChild(projectItem);
+  }
+  projectsContainer.appendChild(projectsList);
   const wrapper = document.querySelector('#root');
-  wrapper.appendChild(projectContainer);
+  wrapper.appendChild(projectsContainer);
   return projects;
 }
 
