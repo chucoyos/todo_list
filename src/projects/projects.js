@@ -11,9 +11,10 @@ const projects =  () => {
   addProjectButton.setAttribute('id', 'add-project-button');
   projectsHeader.appendChild(projectTitle);
   projectsHeader.appendChild(addProjectButton);
+
   addProjectButton.addEventListener('click', () => {
     const newProjectContainer = newProject();
-    projectsBody.appendChild(newProjectContainer);
+    projectsBody.insertBefore(newProjectContainer, projectsList);
   });
   // End of projects header
 
