@@ -1,6 +1,7 @@
 import addProject from "./addProject";
 const newProject = () => {
   const newProjectContainer = document.createElement('div');
+  newProjectContainer.setAttribute('id', 'new-project-container');
   const newProjectBtn = document.createElement('button');
   newProjectBtn.setAttribute('id', 'new-project-btn');
   newProjectBtn.textContent = 'New Project';
