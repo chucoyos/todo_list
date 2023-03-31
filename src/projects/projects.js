@@ -1,4 +1,4 @@
-
+import newProject from "./newProject";
 const projects =  () => {
 
   // Projects header
@@ -11,6 +11,10 @@ const projects =  () => {
   addProjectButton.setAttribute('id', 'add-project-button');
   projectsHeader.appendChild(projectTitle);
   projectsHeader.appendChild(addProjectButton);
+  addProjectButton.addEventListener('click', () => {
+    const newProjectContainer = newProject();
+    projectsBody.appendChild(newProjectContainer);
+  });
   // End of projects header
 
   if (!localStorage.getItem('projects')) {
@@ -35,7 +39,7 @@ const projects =  () => {
   projectsBody.appendChild(projectsList);
   const root = document.querySelector('#root');
   root.appendChild(projectsContainer);
-  return projects;
+    return projectsContainer;
 }
 
 export default projects;

@@ -1,4 +1,5 @@
-import addProject from "./addProject";
+import addProject from "./addProject"
+
 const newProject = () => {
   const newProjectContainer = document.createElement('div');
   newProjectContainer.setAttribute('id', 'new-project-container');
@@ -12,8 +13,8 @@ const newProject = () => {
   projectInput.setAttribute('placeholder', 'Project name');
   newProjectContainer.appendChild(newProjectBtn);
   newProjectContainer.appendChild(projectInput);
-  const wrapper = document.querySelector('#root');
-  wrapper.appendChild(newProjectContainer);
+  const listItem = document.createElement('li');
+  listItem.appendChild(newProjectContainer);
   return newProjectContainer;
 }
 
