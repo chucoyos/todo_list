@@ -7,6 +7,7 @@ const projects =  () => {
   const projectTitle = document.createElement('h2');
   projectTitle.textContent = 'Projects';
   const addProjectButton = document.createElement('button');
+  // add check emoji to button
   addProjectButton.textContent = 'Add Project';
   addProjectButton.setAttribute('id', 'add-project-button');
   projectsHeader.appendChild(projectTitle);

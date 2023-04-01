@@ -5,14 +5,21 @@ const newProject = () => {
   newProjectContainer.setAttribute('id', 'new-project-container');
   const newProjectBtn = document.createElement('button');
   newProjectBtn.setAttribute('id', 'new-project-btn');
-  newProjectBtn.textContent = 'New Project';
+  newProjectBtn.textContent =  '✔️';
   newProjectBtn.addEventListener('click', addProject);
+  const cancelProjectBtn = document.createElement('button');
+  cancelProjectBtn.setAttribute('id', 'cancel-project-btn');
+  cancelProjectBtn.textContent = '❌';
+  cancelProjectBtn.addEventListener('click', () => {
+    newProjectContainer.remove();
+  });
   const projectInput = document.createElement('input');
   projectInput.setAttribute('id', 'project-input');
   projectInput.setAttribute('type', 'text');
   projectInput.setAttribute('placeholder', 'Project name');
-  newProjectContainer.appendChild(newProjectBtn);
   newProjectContainer.appendChild(projectInput);
+  newProjectContainer.appendChild(cancelProjectBtn);
+  newProjectContainer.appendChild(newProjectBtn);
   newProjectContainer.classList.add('project-item');
   const listItem = document.createElement('li');
   listItem.appendChild(newProjectContainer);
