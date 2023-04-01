@@ -14,7 +14,7 @@ const projects =  () => {
 
   addProjectButton.addEventListener('click', () => {
     const newProjectContainer = newProject();
-    projectsBody.insertBefore(newProjectContainer, projectsList);
+    projectsList.insertBefore(newProjectContainer, projectsList.firstChild);
   });
   // End of projects header
 
@@ -29,8 +29,10 @@ const projects =  () => {
   const projectsBody = document.createElement('div');
   projectsBody.setAttribute('id', 'projects-body');
   const projectsList = document.createElement('ul');
+  projectsList.setAttribute('id', 'projects-list');
   for (let project of projects) {
     const projectItem = document.createElement('li');
+    projectItem.classList.add('project-item');
     projectItem.textContent = project.name;
     projectsList.appendChild(projectItem);
   }

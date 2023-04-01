@@ -50,6 +50,8 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 #root, #__next {
   isolation: isolate;
+  max-width: 80%;
+  margin: 0 auto;
 }
 /* End css reset */
 
@@ -64,8 +66,27 @@ p, h1, h2, h3, h4, h5, h6 {
   flex: 1;
   justify-content: space-evenly;
 }
+#projects-body > ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#projects-body > ul > .project-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+}
 #new-project-container {
-  display: block;
+  display: flex;
 }
 
 li {

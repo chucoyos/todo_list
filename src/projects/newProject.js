@@ -13,6 +13,7 @@ const newProject = () => {
   projectInput.setAttribute('placeholder', 'Project name');
   newProjectContainer.appendChild(newProjectBtn);
   newProjectContainer.appendChild(projectInput);
+  newProjectContainer.classList.add('project-item');
   const listItem = document.createElement('li');
   listItem.appendChild(newProjectContainer);
   return newProjectContainer;
