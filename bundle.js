@@ -166,7 +166,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"deleteProject\": () => (/* binding */ deleteProject)\n/* harmony export */ });\nfunction deleteProject(project) {\n  const projects = JSON.parse(localStorage.getItem('projects'));\n  const updatedProjects = projects.filter((proj) => proj.name !== project.name);\n  localStorage.setItem('projects', JSON.stringify(updatedProjects));\n  // project.localStorage.removeItem(\"projects\");\n  // const projects = JSON.parse(localStorage.getItem('projects'));\n  // const updatedProjects = projects.filter((proj) => proj.name !== project.name);\n  // localStorage.setItem('projects', JSON.stringify(updatedProjects));\n}\n\n\n\n//# sourceURL=webpack://todo-list/./src/projects/projectsController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"deleteProject\": () => (/* binding */ deleteProject)\n/* harmony export */ });\nfunction deleteProject(project) {\n  const projects = JSON.parse(localStorage.getItem('projects'));\n  const updatedProjects = projects.filter((proj) => proj.name !== project.name);\n  localStorage.setItem('projects', JSON.stringify(updatedProjects));\n}\n\n\n\n//# sourceURL=webpack://todo-list/./src/projects/projectsController.js?");
 
 /***/ })
 
