@@ -1,5 +1,8 @@
-import addProject from "./addProject";
+import Project from "./Project";
 import newProject from "./newProject";
+import deleteProject from "./deleteProject";
+import displayProjects from "./projects";
+import addProject from "./addProject";
 const projects =  () => {
   // Projects header
   const projectsHeader = document.createElement('div');
@@ -23,7 +26,20 @@ const projects =  () => {
   }
 
   const projects = JSON.parse(localStorage.getItem('projects'));
-  projects.push({name: 'Default project'});
+
+
+
+  // If there are no projects, create a default project and call displayProjects
+  if (projects.length === 0) {
+    const defaultProject = new Project('Default Project');
+    const projectsArray = [];
+    projectsArray.push(defaultProject);
+    localStorage.setItem('projects', JSON.stringify(projectsArray));
+    const projectsContainer = document.querySelector('#projects-container');
+    displayProjects();
+  }
+
+
   const projectsContainer = document.createElement('div');
   projectsContainer.setAttribute('id', 'projects-container');
 
@@ -37,7 +53,7 @@ const projects =  () => {
     projectItem.textContent = project.name;
     projectsList.appendChild(projectItem);
   }
-
+  deleteProject();
   projectsContainer.appendChild(projectsHeader);
   projectsContainer.appendChild(projectsBody);
   projectsBody.appendChild(projectsList);
