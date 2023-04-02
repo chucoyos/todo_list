@@ -42,12 +42,26 @@ const projects =  () => {
 
   const projectsBody = document.createElement('div');
   projectsBody.setAttribute('id', 'projects-body');
-  const projectsList = document.createElement('ul');
+  const projectsList = document.createElement('div');
   projectsList.setAttribute('id', 'projects-list');
   for (let project of projects) {
-    const projectItem = document.createElement('li');
+    const projectItem = document.createElement('div');
     projectItem.classList.add('project-item');
-    projectItem.textContent = project.name;
+    const projectTitle = document.createElement('p');
+    projectTitle.textContent = project.name;
+    projectTitle.classList.add('project-title');
+    projectItem.appendChild(projectTitle);
+    const deleteProjectButton = document.createElement('button');
+    deleteProjectButton.textContent = '🗑️';
+    deleteProjectButton.setAttribute('id', 'delete-project-button');
+    deleteProjectButton.addEventListener('click', () => {
+      deleteProject(project);
+    });
+    const editProjectButton = document.createElement('button');
+    editProjectButton.textContent = '✏️';
+    editProjectButton.setAttribute('id', 'edit-project-button');
+    projectItem.appendChild(deleteProjectButton);
+    projectItem.appendChild(editProjectButton);
     projectsList.appendChild(projectItem);
   }
   const root = document.querySelector('#root');
