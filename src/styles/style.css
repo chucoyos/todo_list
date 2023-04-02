@@ -55,26 +55,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 /* End css reset */
 
-/* #add-project-button {
-  padding: 12px 42px;
-    border-radius: 12px;
-    font-size: 1.25rem;
-    color: white;
-    background: hsl(345deg 100% 47%);
-    will-change: transform;
-    transform: translateY(-4px);
-    transition:
-      transform
-      600ms
-      cubic-bezier(.3, .7, .4, 1);
-}
-#add-project-button:hover {
-  transform: translateY(-6px);
-    transition:
-      transform
-      250ms
-      cubic-bezier(.3, .7, .4, 1.5);
-} */
 .pushable {
   position: relative;
   border: none;
@@ -162,13 +142,20 @@ p, h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 40px;
+  max-width: 90%;
+  margin: 40px auto;
 }
 #projects-header {
   display: flex;
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+}
+#projects-title {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: xx-large;
 }
 #projects-body > ul {
   display: flex;
@@ -193,7 +180,9 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  color: rgb(243, 81, 81);
+  color: hsl(345deg 100% 47%);
+  cursor: pointer;
+  font-size: large;
 }
 #delete-project-button, #edit-project-button, #new-project-btn, #cancel-project-btn {
   margin: 0.5rem;

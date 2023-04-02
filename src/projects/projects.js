@@ -6,7 +6,8 @@ const projects =  () => {
   // Projects header
   const projectsHeader = document.createElement('div');
   projectsHeader.setAttribute('id', 'projects-header');
-  const projectTitle = document.createElement('h2');
+  const projectTitle = document.createElement('h1');
+  projectTitle.setAttribute('id', 'projects-title');
   projectTitle.textContent = 'Projects';
 
 
