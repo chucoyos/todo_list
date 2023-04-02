@@ -1,13 +1,12 @@
+import addProject from "./addProject";
 import newProject from "./newProject";
 const projects =  () => {
-
   // Projects header
   const projectsHeader = document.createElement('div');
   projectsHeader.setAttribute('id', 'projects-header');
   const projectTitle = document.createElement('h2');
   projectTitle.textContent = 'Projects';
   const addProjectButton = document.createElement('button');
-  // add check emoji to button
   addProjectButton.textContent = 'Add Project';
   addProjectButton.setAttribute('id', 'add-project-button');
   projectsHeader.appendChild(projectTitle);
@@ -24,6 +23,7 @@ const projects =  () => {
   }
 
   const projects = JSON.parse(localStorage.getItem('projects'));
+  projects.push({name: 'Default project'});
   const projectsContainer = document.createElement('div');
   projectsContainer.setAttribute('id', 'projects-container');
 
