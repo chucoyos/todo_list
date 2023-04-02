@@ -8,11 +8,25 @@ const projects =  () => {
   projectsHeader.setAttribute('id', 'projects-header');
   const projectTitle = document.createElement('h2');
   projectTitle.textContent = 'Projects';
+
+
   const addProjectButton = document.createElement('button');
-  addProjectButton.textContent = 'Add Project';
   addProjectButton.setAttribute('id', 'add-project-button');
+  addProjectButton.classList.add('pushable');
+  const btnShadow = document.createElement('span');
+  btnShadow.classList.add('shadow');
+  const btnEdge = document.createElement('span');
+  btnEdge.classList.add('edge');
+  const btnFront = document.createElement('span');
+  btnFront.classList.add('front');
+  btnFront.textContent = 'Add Project';
+  addProjectButton.appendChild(btnShadow);
+  addProjectButton.appendChild(btnEdge);
+  addProjectButton.appendChild(btnFront);
+
   projectsHeader.appendChild(projectTitle);
   projectsHeader.appendChild(addProjectButton);
+
 
   addProjectButton.addEventListener('click', () => {
     const newProjectContainer = newProject();
