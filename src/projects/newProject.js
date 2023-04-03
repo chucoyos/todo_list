@@ -12,6 +12,8 @@ const newProject = () => {
   cancelProjectBtn.textContent = '❌';
   cancelProjectBtn.addEventListener('click', () => {
     newProjectContainer.remove();
+    const addProjectButton = document.getElementById('add-project-button');
+    addProjectButton.disabled = false;
   });
   const projectInput = document.createElement('input');
   projectInput.setAttribute('id', 'project-input');

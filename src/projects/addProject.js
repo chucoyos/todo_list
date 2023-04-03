@@ -22,5 +22,7 @@ const addProject = (name) => {
   const projectsContainer = document.querySelector('#projects-container');
   projectsContainer.remove();
   displayProjects();
+  const addProjectButton = document.getElementById('add-project-button');
+  addProjectButton.disabled = false;
 }
 export default addProject;

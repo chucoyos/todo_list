@@ -32,6 +32,7 @@ const projects =  () => {
   addProjectButton.addEventListener('click', () => {
     const newProjectContainer = newProject();
     projectsList.insertBefore(newProjectContainer, projectsList.firstChild);
+    addProjectButton.disabled = true;
   });
   // End of projects header
 
