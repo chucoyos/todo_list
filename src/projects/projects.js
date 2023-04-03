@@ -1,6 +1,6 @@
 import Project from "./Project";
 import newProject from "./newProject";
-import { deleteProject } from "./projectsController";
+import { deleteProject, editProject } from "./projectsController";
 import displayProjects from "./projects";
 const projects =  () => {
   // Projects header
@@ -60,6 +60,7 @@ const projects =  () => {
   projectsBody.setAttribute('id', 'projects-body');
   const projectsList = document.createElement('div');
   projectsList.setAttribute('id', 'projects-list');
+
   for (let project of projects) {
     const projectItem = document.createElement('div');
     projectItem.classList.add('project-item');
@@ -78,6 +79,10 @@ const projects =  () => {
     const editProjectButton = document.createElement('button');
     editProjectButton.textContent = '✏️';
     editProjectButton.setAttribute('id', 'edit-project-button');
+    editProjectButton.addEventListener('click', () => {
+      editProject(project);
+      return;
+    });
     projectItem.appendChild(deleteProjectButton);
     projectItem.appendChild(editProjectButton);
     projectsList.appendChild(projectItem);
