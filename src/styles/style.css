@@ -184,24 +184,14 @@ p, h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   font-size: large;
 }
-#delete-project-button, 
-#edit-project-button, 
-#new-project-btn, 
-#cancel-project-btn,
-#save-project-button,
-#cancel-edit-button {
+.project-item button {
   margin: 0.5rem;
   padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
   box-shadow: .5px .5px .2px .2px rgba(107, 103, 103, 0.1);
 }
-#delete-project-button:hover, 
-#edit-project-button:hover, 
-#new-project-btn:hover, 
-#cancel-project-btn:hover,
-#save-project-button:hover,
-#cancel-edit-button:hover {
+.project-item button:hover {
   filter: brightness(95%);
   cursor: pointer;
 }
@@ -210,14 +200,14 @@ p, h1, h2, h3, h4, h5, h6 {
  
 }
  
-#project-input, #edit-project-input {
+.project-item input {
   flex: 1;
   margin: 0.5rem;
   padding: 0.5rem;
   border: 1px solid #000;
   border-radius: 0.5rem;
 }
-#project-input:focus, #edit-project-input:focus {
+.project-item input:focus {
   outline: none;
   border: 2px solid rgb(157, 191, 243);
 }
