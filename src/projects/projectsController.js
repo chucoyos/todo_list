@@ -18,8 +18,8 @@ function editProject(project) {
   editProjectInput.setAttribute('type', 'text');
   const projectItem = document.getElementById(project.name);
   //  get the current project title and replace it with the input
-  const currentProject = projectItem.querySelector('.project-title');
-  currentProject.replaceWith(editProjectInput);
+  const currentTitle = projectItem.querySelector('.project-title');
+  currentTitle.replaceWith(editProjectInput);
   editProjectInput.value = project.name;
   editProjectInput.focus();
 
