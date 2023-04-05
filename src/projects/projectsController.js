@@ -22,7 +22,6 @@ function editProject(project) {
   editProjectInput.value = project.name;
   editProjectInput.focus();
   
-  // TODO PLACE THE BUTTONS IN THE RIGHT PLACE
   // replace edit button with save button
   let editButtonId = project.name + '-edit-button';
   let deleteButtonId = project.name + '-delete-button';
@@ -45,8 +44,21 @@ function editProject(project) {
     projectItem.replaceChild(deleteProjectButton, cancelProjectButton);
     editProjectInput.replaceWith(currentTitle);
     return;
-  }
-  );
+  });
+  saveProjectButton.addEventListener('click', () => {
+    const projects = JSON.parse(localStorage.getItem('projects'));
+    const updatedProjects = projects.filter((proj) => proj.name !== project.name); // remove the old project
+    project.name = editProjectInput.value; // update the project name
+    updatedProjects.push(project); // add the updated project
+    localStorage.setItem('projects', JSON.stringify(updatedProjects));// update local storage
+    currentTitle.textContent = project.name;
+    projectItem.replaceChild(editProjectButton, saveProjectButton);
+    projectItem.replaceChild(deleteProjectButton, cancelProjectButton);
+    editProjectInput.replaceWith(currentTitle);
+    return;
+
+    
+  });
 }
 
 export { deleteProject, editProject }
