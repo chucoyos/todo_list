@@ -64,6 +64,7 @@ const projects =  () => {
   for (let project of projects) {
     const projectItem = document.createElement('div');
     projectItem.classList.add('project-item');
+    projectItem.setAttribute('id', project.name);
     const projectTitle = document.createElement('p');
     projectTitle.textContent = project.name;
     projectTitle.classList.add('project-title');
