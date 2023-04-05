@@ -25,10 +25,40 @@ function editProject(project) {
   
   // TODO PLACE THE BUTTONS IN THE RIGHT PLACE
   // replace edit button with save button
-  const editProjectButton = document.getElementById(project.name + '-edit-button');
+  let editButtonId = project.name + '-edit-button';
+  let deleteButtonId = project.name + '-delete-button';
+  let saveButtonId = project.name + '-save-button';
+  let cancelButtonId = project.name + '-cancel-button';
+  const editProjectButton = document.getElementById(editButtonId);
+  const deleteProjectButton = document.getElementById(deleteButtonId);
   const saveProjectButton = document.createElement('button');
   saveProjectButton.textContent = '✔️';
+  saveProjectButton.setAttribute('id', saveButtonId);
   projectItem.replaceChild(saveProjectButton, editProjectButton);
+  // replace delete button with cancel button
+  const cancelProjectButton = document.createElement('button');
+  cancelProjectButton.textContent = '❌';
+  cancelProjectButton.setAttribute('id', cancelButtonId);
+  projectItem.replaceChild(cancelProjectButton, deleteProjectButton);
+  // add event listeners to save and cancel buttons
+  cancelProjectButton.addEventListener('click', () => {
+    // replace input with project title
+    const projectTitle = document.createElement('p');
+    projectTitle.textContent = project.name;
+    projectTitle.classList.add('project-title');
+    editProjectInput.replaceWith(projectTitle);
+    // replace save button with edit button
+    const editProjectButton = document.createElement('button');
+    editProjectButton.textContent = '✏️';
+    editProjectButton.setAttribute('id', editButtonId);
+    projectItem.replaceChild(editProjectButton, saveProjectButton);
+    // replace cancel button with delete button
+    const deleteProjectButton = document.createElement('button');
+    deleteProjectButton.textContent = '🗑️';
+    deleteProjectButton.setAttribute('id', deleteButtonId);
+    projectItem.replaceChild(deleteProjectButton, cancelProjectButton);
+  }
+  );
 }
 
 export { deleteProject, editProject }
