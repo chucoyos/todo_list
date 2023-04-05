@@ -62,6 +62,8 @@ const projects =  () => {
   projectsList.setAttribute('id', 'projects-list');
 
   for (let project of projects) {
+    let editButtonId = project.name + '-edit-button';
+    let deleteButtonId = project.name + '-delete-button';
     const projectItem = document.createElement('div');
     projectItem.classList.add('project-item');
     projectItem.setAttribute('id', project.name);
@@ -71,7 +73,7 @@ const projects =  () => {
     projectItem.appendChild(projectTitle);
     const deleteProjectButton = document.createElement('button');
     deleteProjectButton.textContent = '🗑️';
-    deleteProjectButton.setAttribute('id', 'delete-project-button');
+    deleteProjectButton.setAttribute('id', deleteButtonId);
     deleteProjectButton.addEventListener('click', () => {
       deleteProject(project);
       projectsList.removeChild(projectItem);
@@ -79,7 +81,7 @@ const projects =  () => {
     });
     const editProjectButton = document.createElement('button');
     editProjectButton.textContent = '✏️';
-    editProjectButton.setAttribute('id', 'edit-project-button');
+    editProjectButton.setAttribute('id', editButtonId);
     editProjectButton.addEventListener('click', () => {
       editProject(project);
       return;
