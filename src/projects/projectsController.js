@@ -1,4 +1,3 @@
-
 function deleteProject(project) {
   const projects = JSON.parse(localStorage.getItem('projects'));
   const updatedProjects = projects.filter((proj) => proj.name !== project.name);
@@ -42,21 +41,10 @@ function editProject(project) {
   projectItem.replaceChild(cancelProjectButton, deleteProjectButton);
   // add event listeners to save and cancel buttons
   cancelProjectButton.addEventListener('click', () => {
-    // replace input with project title
-    const projectTitle = document.createElement('p');
-    projectTitle.textContent = project.name;
-    projectTitle.classList.add('project-title');
-    editProjectInput.replaceWith(projectTitle);
-    // replace save button with edit button
-    const editProjectButton = document.createElement('button');
-    editProjectButton.textContent = '✏️';
-    editProjectButton.setAttribute('id', editButtonId);
     projectItem.replaceChild(editProjectButton, saveProjectButton);
-    // replace cancel button with delete button
-    const deleteProjectButton = document.createElement('button');
-    deleteProjectButton.textContent = '🗑️';
-    deleteProjectButton.setAttribute('id', deleteButtonId);
     projectItem.replaceChild(deleteProjectButton, cancelProjectButton);
+    editProjectInput.replaceWith(currentTitle);
+    return;
   }
   );
 }
