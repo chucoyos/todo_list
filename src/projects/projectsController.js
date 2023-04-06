@@ -46,18 +46,23 @@ function editProject(project) {
     return;
   });
   saveProjectButton.addEventListener('click', () => {
-    const projects = JSON.parse(localStorage.getItem('projects'));
+    const projects = JSON.parse(localStorage.getItem('projects')); // get projects from local storage
     const updatedProjects = projects.filter((proj) => proj.name !== project.name); // remove the old project
     project.name = editProjectInput.value; // update the project name
     updatedProjects.push(project); // add the updated project
     localStorage.setItem('projects', JSON.stringify(updatedProjects));// update local storage
     currentTitle.textContent = project.name;
+    projectItem.setAttribute('id', project.name);
+    editButtonId = project.name + '-edit-button';
+    deleteButtonId = project.name + '-delete-button';
+    editProjectInput.replaceWith(currentTitle);
+    editProjectButton.setAttribute('id', editButtonId); // update the edit button id
+    deleteProjectButton.setAttribute('id', deleteButtonId); // update the delete button id
+    saveProjectButton.setAttribute('id', saveButtonId);
+    cancelProjectButton.setAttribute('id', cancelButtonId);
     projectItem.replaceChild(editProjectButton, saveProjectButton);
     projectItem.replaceChild(deleteProjectButton, cancelProjectButton);
-    editProjectInput.replaceWith(currentTitle);
     return;
-
-    
   });
 }
 
