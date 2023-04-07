@@ -3,6 +3,8 @@ function showProject(project) {
   projectContainer.setAttribute('id', 'project-container');
   const projectsContainer = document.getElementById('projects-container');
   const projectHeader = document.getElementById('projects-header');
+  const projectsBody = document.getElementById('projects-body');
+  projectsContainer.removeChild(projectsBody);
   projectsContainer.replaceWith(projectContainer);
   const backToProjects = document.createElement('p');
   backToProjects.textContent = '👈️ Back to projects';
@@ -10,6 +12,8 @@ function showProject(project) {
   projectContainer.appendChild(backToProjects);
   projectContainer.appendChild(projectHeader);
   backToProjects.addEventListener('click', () => {
+    projectsContainer.appendChild(projectHeader);
+    projectsContainer.appendChild(projectsBody);
     projectContainer.replaceWith(projectsContainer);
     return;
   });
