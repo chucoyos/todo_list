@@ -2,14 +2,15 @@ function showProject(project) {
   const projectContainer = document.createElement('div');
   projectContainer.setAttribute('id', 'project-container');
   const projectsContainer = document.getElementById('projects-container');
+  const projectHeader = document.getElementById('projects-header');
   projectsContainer.replaceWith(projectContainer);
   const backToProjects = document.createElement('p');
   backToProjects.textContent = '👈️ Back to projects';
   backToProjects.setAttribute('id', 'back-to-projects');
   projectContainer.appendChild(backToProjects);
+  projectContainer.appendChild(projectHeader);
   backToProjects.addEventListener('click', () => {
     projectContainer.replaceWith(projectsContainer);
-    console.log(project.tasks)
     return;
   });
  
