@@ -211,5 +211,9 @@ p, h1, h2, h3, h4, h5, h6 {
   outline: none;
   border: 2px solid rgb(157, 191, 243);
 }
+#back-to-projects {
+  color: hsl(345deg 100% 47%);
+  cursor: pointer;
+}
  
 

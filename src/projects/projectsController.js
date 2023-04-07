@@ -1,8 +1,18 @@
-function deleteProject(project) {
-  const projects = JSON.parse(localStorage.getItem('projects'));
-  const updatedProjects = projects.filter((proj) => proj.name !== project.name);
-  localStorage.setItem('projects', JSON.stringify(updatedProjects));
-  const addProjectButton = document.getElementById('add-project-button');
+function showProject(project) {
+  const projectContainer = document.createElement('div');
+  projectContainer.setAttribute('id', 'project-container');
+  const projectsContainer = document.getElementById('projects-container');
+  projectsContainer.replaceWith(projectContainer);
+  const backToProjects = document.createElement('p');
+  backToProjects.textContent = '👈️ Back to projects';
+  backToProjects.setAttribute('id', 'back-to-projects');
+  projectContainer.appendChild(backToProjects);
+  backToProjects.addEventListener('click', () => {
+    projectContainer.replaceWith(projectsContainer);
+    console.log(project.tasks)
+    return;
+  });
+ 
 }
 
 function editProject(project) {
@@ -61,4 +71,11 @@ function editProject(project) {
   });
 }
 
-export { deleteProject, editProject }
+function deleteProject(project) {
+  const projects = JSON.parse(localStorage.getItem('projects'));
+  const updatedProjects = projects.filter((proj) => proj.name !== project.name);
+  localStorage.setItem('projects', JSON.stringify(updatedProjects));
+  const addProjectButton = document.getElementById('add-project-button');
+}
+
+export { showProject, deleteProject, editProject }
