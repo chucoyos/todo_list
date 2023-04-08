@@ -28,6 +28,7 @@ function showProject(project) {
     projectContainer.replaceWith(projectsContainer);
     buttonText.textContent = 'Add Project';
     projectTitle.textContent = 'Projects';
+    addProjectButton.removeEventListener('click', showTaskForm);
     return;
   });
  
