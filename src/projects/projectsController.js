@@ -1,4 +1,5 @@
 import { showNewProjectForm } from './eventListeners';
+import { showTaskForm } from './tasksController';
 function showProject(project) {
   const projectContainer = document.createElement('div');
   projectContainer.setAttribute('id', 'project-container');
@@ -7,11 +8,9 @@ function showProject(project) {
   const projectsBody = document.getElementById('projects-body');
   const projectTitle = document.getElementById('projects-title');
   const addProjectButton = document.getElementById('add-project-button');
-  // TODO remove event listener from add project button
   addProjectButton.removeEventListener('click', showNewProjectForm);
+  addProjectButton.addEventListener('click', showTaskForm, false);
  
-
-
   projectTitle.textContent = project.name;
   const buttonText = document.querySelector('.front');
   buttonText.textContent = 'Add Task';
