@@ -1,19 +1,22 @@
+import { cancelAddTask } from './eventListeners';
 function newTask() {
   const projectContainer = document.getElementById('project-container');
   const tasksBody  = document.createElement('div');
+  tasksBody.setAttribute('id', 'tasks-body');
   const taskItem = document.createElement('div');
   taskItem.classList.add('project-item');
   const taskInput = document.createElement('input');
   taskInput.setAttribute('type', 'text');
   taskInput.setAttribute('placeholder', 'New Task');
-  taskInput.setAttribute('id', 'task-input');
   taskInput.classList.add('project-item');
+  taskInput.setAttribute('id', 'task-item')
   const addTaskButton = document.createElement('button');
   addTaskButton.textContent = '✔️';
   addTaskButton.setAttribute('id', 'add-task-button');
   const cancelTaskButton = document.createElement('button');
   cancelTaskButton.textContent = '❌';
   cancelTaskButton.setAttribute('id', 'cancel-task-button');
+  cancelTaskButton.addEventListener('click', cancelAddTask, false);
   taskItem.appendChild(taskInput);
   taskItem.appendChild(cancelTaskButton);
   taskItem.appendChild(addTaskButton);
