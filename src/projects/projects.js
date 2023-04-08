@@ -2,6 +2,7 @@ import Project from "./Project";
 import newProject from "./newProject";
 import { showProject, deleteProject, editProject } from "./projectsController";
 import displayProjects from "./projects";
+import { showNewProjectForm } from "./eventListeners";
 const projects =  () => {
   // Projects header
   const projectsHeader = document.createElement('div');
@@ -28,12 +29,8 @@ const projects =  () => {
   projectsHeader.appendChild(projectTitle);
   projectsHeader.appendChild(addProjectButton);
 
+  addProjectButton.addEventListener('click', showNewProjectForm, false)
 
-  addProjectButton.addEventListener('click', () => {
-    const newProjectContainer = newProject();
-    projectsList.insertBefore(newProjectContainer, projectsList.firstChild);
-    addProjectButton.disabled = true;
-  });
   // End of projects header
 
   if (!localStorage.getItem('projects')) {

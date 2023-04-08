@@ -1,9 +1,20 @@
+import { showNewProjectForm } from './eventListeners';
 function showProject(project) {
   const projectContainer = document.createElement('div');
   projectContainer.setAttribute('id', 'project-container');
   const projectsContainer = document.getElementById('projects-container');
   const projectHeader = document.getElementById('projects-header');
   const projectsBody = document.getElementById('projects-body');
+  const projectTitle = document.getElementById('projects-title');
+  const addProjectButton = document.getElementById('add-project-button');
+  // TODO remove event listener from add project button
+  addProjectButton.removeEventListener('click', showNewProjectForm);
+ 
+
+
+  projectTitle.textContent = project.name;
+  const buttonText = document.querySelector('.front');
+  buttonText.textContent = 'Add Task';
   projectsContainer.removeChild(projectsBody);
   projectsContainer.replaceWith(projectContainer);
   const backToProjects = document.createElement('p');
@@ -12,9 +23,12 @@ function showProject(project) {
   projectContainer.appendChild(backToProjects);
   projectContainer.appendChild(projectHeader);
   backToProjects.addEventListener('click', () => {
+    addProjectButton.addEventListener('click', showNewProjectForm, false);
     projectsContainer.appendChild(projectHeader);
     projectsContainer.appendChild(projectsBody);
     projectContainer.replaceWith(projectsContainer);
+    buttonText.textContent = 'Add Project';
+    projectTitle.textContent = 'Projects';
     return;
   });
  
