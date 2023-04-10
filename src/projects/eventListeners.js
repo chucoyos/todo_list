@@ -12,8 +12,6 @@ const cancelAddTask = function cancelAddTask() {
   const addProjectButton = document.getElementById('add-project-button');
   const TasksContainer = document.getElementById('project-container');
   const tasksBody = document.getElementById('tasks-body');
-  const projectsList = document.getElementById('projects-list');
-  const taskItem = document.querySelector('.project-item');
   TasksContainer.removeChild(tasksBody);
   addProjectButton.disabled = false;
 }
