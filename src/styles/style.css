@@ -145,13 +145,13 @@ p, h1, h2, h3, h4, h5, h6 {
   max-width: 90%;
   margin: 40px auto;
 }
-#projects-header {
+#projects-header, .item-header {
   display: flex;
   flex: 1;
   justify-content: space-between;
   align-items: center;
 }
-#projects-title {
+#projects-title, .item-due-date {
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
