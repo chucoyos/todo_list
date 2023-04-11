@@ -1,5 +1,5 @@
 import { showNewProjectForm } from './eventListeners';
-import { showTaskForm } from './tasksController';
+import { listTasks, showTaskForm } from './tasksController';
 function showProject(project) {
   const projectContainer = document.createElement('div');
   projectContainer.setAttribute('id', 'project-container');
@@ -31,6 +31,10 @@ function showProject(project) {
   projectContainer.appendChild(projectHeader);
 
   projectContainer.appendChild(tasksList);
+
+
+  listTasks(project);
+  
   
   backToProjects.addEventListener('click', () => {
     addProjectButton.addEventListener('click', showNewProjectForm, false);

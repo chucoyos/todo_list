@@ -1,5 +1,4 @@
 import Project from "./Project";
-import newProject from "./newProject";
 import { showProject, deleteProject, editProject } from "./projectsController";
 import displayProjects from "./projects";
 import { showNewProjectForm } from "./eventListeners";
