@@ -17,7 +17,9 @@ function newTask() {
   addTaskButton.setAttribute('id', 'add-task-button');
 
   addTaskButton.addEventListener('click', addTask, false);
-
+  
+  const tasksList = document.getElementById('tasks-list');
+  tasksList.appendChild(taskItem);
 
   const cancelTaskButton = document.createElement('button');
   cancelTaskButton.textContent = '❌';
@@ -26,8 +28,8 @@ function newTask() {
   taskItem.appendChild(taskInput);
   taskItem.appendChild(cancelTaskButton);
   taskItem.appendChild(addTaskButton);
-  tasksBody.appendChild(taskItem);
-  projectContainer.appendChild(tasksBody);
+  tasksList.appendChild(taskItem);
+
   return tasksBody;
 }
 export default newTask;

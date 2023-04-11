@@ -10,17 +10,28 @@ function showProject(project) {
   const addProjectButton = document.getElementById('add-project-button');
   addProjectButton.removeEventListener('click', showNewProjectForm);
   addProjectButton.addEventListener('click', showTaskForm, false);
+
+  const tasksBody = document.createElement('div');
+  tasksBody.setAttribute('id', 'tasks-body');
+  const tasksList = document.createElement('div');
+  tasksList.setAttribute('id', 'tasks-list');
+  tasksBody.appendChild(tasksList);
+  
  
   projectTitle.textContent = project.name;
   const buttonText = document.querySelector('.front');
   buttonText.textContent = 'Add Task';
   projectsContainer.removeChild(projectsBody);
   projectsContainer.replaceWith(projectContainer);
+
   const backToProjects = document.createElement('p');
   backToProjects.textContent = '👈️ Back to projects';
   backToProjects.setAttribute('id', 'back-to-projects');
   projectContainer.appendChild(backToProjects);
   projectContainer.appendChild(projectHeader);
+
+  projectContainer.appendChild(tasksList);
+  
   backToProjects.addEventListener('click', () => {
     addProjectButton.addEventListener('click', showNewProjectForm, false);
     projectsContainer.appendChild(projectHeader);
