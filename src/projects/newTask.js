@@ -28,7 +28,8 @@ function newTask() {
   taskItem.appendChild(taskInput);
   taskItem.appendChild(cancelTaskButton);
   taskItem.appendChild(addTaskButton);
-  tasksList.appendChild(taskItem);
+  tasksList.prepend(taskItem);
+  taskItem.classList.add('task-input-item');
 
   return tasksBody;
 }

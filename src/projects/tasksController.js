@@ -10,7 +10,7 @@ function addTask() {
   const taskItem = document.getElementById('task-item');
   const taskInput = document.getElementById('task-input');
   const task = taskInput.value;
-  const tasksBody = document.getElementById('tasks-body');
+  // const tasksBody = document.getElementById('tasks-body');
   const tasksList = document.getElementById('tasks-list');
   tasksList.removeChild(taskItem);
   const projects = JSON.parse(localStorage.getItem('projects'));
@@ -42,7 +42,7 @@ function listTasks() {
     taskDueDate.textContent = task.dueDate;
     taskDueDate.classList.add('item-due-date');
     const taskDeleteBtn = document.createElement('button');
-    taskDeleteBtn.textContent = '❌';
+    taskDeleteBtn.textContent = '🗑️';
     taskDeleteBtn.classList.add('delete-task');
     const taskEditBtn = document.createElement('button');
     taskEditBtn.textContent = '✏️';
