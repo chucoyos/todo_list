@@ -34,15 +34,13 @@ function listTasks() {
     const taskItem = document.createElement('div');
     taskItem.classList.add('project-item');
     taskItem.setAttribute('id', 'task-item');
+
     // build item header
     const itemHeader = document.createElement('div');
     itemHeader.classList.add('item-header');
     const taskDueDate = document.createElement('p');
     taskDueDate.textContent = task.dueDate;
     taskDueDate.classList.add('item-due-date');
-    
-
-
     const taskDeleteBtn = document.createElement('button');
     taskDeleteBtn.textContent = '❌';
     taskDeleteBtn.classList.add('delete-task');
@@ -52,26 +50,31 @@ function listTasks() {
     const cluster = document.createElement('div');
     cluster.appendChild(taskDeleteBtn);
     cluster.appendChild(taskEditBtn);
-
-
     itemHeader.appendChild(taskDueDate);
     itemHeader.appendChild(cluster);
+    // end item header
     
-
-
     const taskTitle = document.createElement('h3');
     taskTitle.textContent = task.title;
-    const taskDescription = document.createElement('p');
+    const taskDescription = document.createElement('div');
+    taskDescription.classList.add('task-description');
     taskDescription.textContent = task.description;
     
     const taskPriority = document.createElement('p');
-    taskPriority.textContent = task.priority;
+    taskPriority.textContent = `Priority: ${task.priority}`;
+
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('title-container');
+
+    const taskBody = document.createElement('div');
+    taskBody.classList.add('task-body');
     
     taskItem.appendChild(itemHeader);
-    taskItem.appendChild(taskTitle);
-    taskItem.appendChild(taskDescription);
-    // taskItem.appendChild(taskDueDate);
-    taskItem.appendChild(taskPriority);
+    titleContainer.appendChild(taskTitle);
+    titleContainer.appendChild(taskPriority);
+    taskBody.appendChild(titleContainer);
+    taskBody.appendChild(taskDescription);
+    taskItem.appendChild(taskBody);
     
     tasksList.appendChild(taskItem);
   });
