@@ -11,7 +11,8 @@ function addTask() {
   const taskInput = document.getElementById('task-input');
   const task = taskInput.value;
   const tasksBody = document.getElementById('tasks-body');
-  tasksBody.removeChild(taskItem);
+  const tasksList = document.getElementById('tasks-list');
+  tasksList.removeChild(taskItem);
   const projects = JSON.parse(localStorage.getItem('projects'));
   const projectTitle = document.getElementById('projects-title');
   const name = projectTitle.textContent;

@@ -10,9 +10,9 @@ const showNewProjectForm = function showNewProjectForm() {
 
 const cancelAddTask = function cancelAddTask() {
   const addProjectButton = document.getElementById('add-project-button');
-  const TasksContainer = document.getElementById('project-container');
-  const tasksBody = document.getElementById('tasks-body');
-  TasksContainer.removeChild(tasksBody);
+  const tasksList = document.getElementById('tasks-list');
+  const taskItem = document.getElementById('task-item');
+  tasksList.removeChild(taskItem);
   addProjectButton.disabled = false;
 }
 
