@@ -1,4 +1,5 @@
 import newTask from "./newTask";
+import { deleteTask } from "./tasksController.js";
 
 function showTaskForm() {
   newTask();
@@ -34,7 +35,6 @@ function listTasks() {
     const taskItem = document.createElement('div');
     taskItem.classList.add('project-item');
     taskItem.setAttribute('id', 'task-item');
-
     // build item header
     const itemHeader = document.createElement('div');
     itemHeader.classList.add('item-header');
@@ -44,6 +44,8 @@ function listTasks() {
     const taskDeleteBtn = document.createElement('button');
     taskDeleteBtn.textContent = '🗑️';
     taskDeleteBtn.classList.add('delete-task');
+    taskDeleteBtn.setAttribute('id', task.title);
+    taskDeleteBtn.addEventListener('click', deleteTask, false);
     const taskEditBtn = document.createElement('button');
     taskEditBtn.textContent = '✏️';
     taskEditBtn.classList.add('edit-task');
@@ -78,6 +80,20 @@ function listTasks() {
     
     tasksList.appendChild(taskItem);
   });
+
+  function deleteTask() {
+    const projects = JSON.parse(localStorage.getItem('projects')); 
+    const projectTitle = document.getElementById('projects-title');
+    const name = projectTitle.textContent;
+    const project = projects.find((project) => project.name === name);
+    const tasks = project.tasks;
+    const task = this.getAttribute('id');
+    console.log(task);
+    const index = tasks.findIndex((task) => task.title === this.getAttribute('id'));
+    tasks.splice(index, 1);
+    localStorage.setItem('projects', JSON.stringify(projects));
+    console.log(tasks);
+  }
 }
 
-export { showTaskForm, addTask, listTasks }
+export { showTaskForm, addTask, listTasks, deleteTask }
