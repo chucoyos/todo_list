@@ -101,6 +101,31 @@ function listTasks() {
     
     const taskPriority = document.createElement('p');
     taskPriority.textContent = `Priority: ${task.priority}`;
+    taskPriority.classList.add('task-priority');
+    taskPriority.addEventListener('click', () => {
+      const priorityInput = document.createElement('select');
+      priorityInput.classList.add('priority-input');
+      const high = document.createElement('option');
+      high.setAttribute('value', 'High');
+      high.textContent = 'High';
+      const medium = document.createElement('option');
+      medium.setAttribute('value', 'Medium');
+      medium.textContent = 'Medium';
+      const low = document.createElement('option');
+      low.setAttribute('value', 'Low');
+      low.textContent = 'Low';
+      priorityInput.appendChild(high);
+      priorityInput.appendChild(medium);
+      priorityInput.appendChild(low);
+      taskPriority.replaceWith(priorityInput);
+      priorityInput.addEventListener('change', () => {
+        task.priority = priorityInput.value;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        priorityInput.replaceWith(taskPriority);
+        removeAllChildNodes(tasksList);
+        listTasks();
+      });
+    });
 
     const titleContainer = document.createElement('div');
     titleContainer.classList.add('title-container');
