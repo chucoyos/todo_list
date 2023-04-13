@@ -244,6 +244,12 @@ p, h1, h2, h3, h4, h5, h6 {
 .task-title {
   cursor: pointer;
 }
-
- 
-
+.task-title:hover {
+  color: hsl(345deg 100% 47%);
+}
+.task-description {
+  cursor: pointer;
+}
+.task-description:hover {
+  color: hsl(345deg 100% 47%);
+}

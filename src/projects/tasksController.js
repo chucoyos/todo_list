@@ -62,11 +62,10 @@ function listTasks() {
     itemHeader.appendChild(cluster);
     // end item header
     
-
-    //TRANSFORM THIS INTO AN INPUT FIELD AND SAVE THE VALUE TO THE TASK OBJECT
     const taskTitle = document.createElement('h3');
     taskTitle.textContent = task.title;
     taskTitle.classList.add('task-title');
+    //TRANSFORM THIS INTO AN INPUT FIELD AND SAVE THE VALUE TO THE TASK OBJECT
     taskTitle.addEventListener('click', () => {
       const titleInput = document.createElement('input');
       titleInput.setAttribute('type', 'text');
@@ -82,11 +81,23 @@ function listTasks() {
       });
     });
 
-
-
     const taskDescription = document.createElement('div');
     taskDescription.classList.add('task-description');
     taskDescription.textContent = task.description;
+    taskDescription.addEventListener('click', () => {
+      const descriptionInput = document.createElement('input');
+      descriptionInput.setAttribute('type', 'text');
+      descriptionInput.setAttribute('value', task.description);
+      descriptionInput.classList.add('task-description');
+      taskDescription.replaceWith(descriptionInput);
+      descriptionInput.addEventListener('change', () => {
+        task.description = descriptionInput.value;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        descriptionInput.replaceWith(taskDescription);
+        removeAllChildNodes(tasksList);
+        listTasks();
+      });
+    });
     
     const taskPriority = document.createElement('p');
     taskPriority.textContent = `Priority: ${task.priority}`;
