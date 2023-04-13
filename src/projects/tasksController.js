@@ -62,8 +62,28 @@ function listTasks() {
     itemHeader.appendChild(cluster);
     // end item header
     
+
+    //TRANSFORM THIS INTO AN INPUT FIELD AND SAVE THE VALUE TO THE TASK OBJECT
     const taskTitle = document.createElement('h3');
     taskTitle.textContent = task.title;
+    taskTitle.classList.add('task-title');
+    taskTitle.addEventListener('click', () => {
+      const titleInput = document.createElement('input');
+      titleInput.setAttribute('type', 'text');
+      titleInput.setAttribute('value', task.title);
+      titleInput.classList.add('task-title');
+      taskTitle.replaceWith(titleInput);
+      titleInput.addEventListener('change', () => {
+        task.title = titleInput.value;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        titleInput.replaceWith(taskTitle);
+        removeAllChildNodes(tasksList);
+        listTasks();
+      });
+    });
+
+
+
     const taskDescription = document.createElement('div');
     taskDescription.classList.add('task-description');
     taskDescription.textContent = task.description;
