@@ -1,25 +1,31 @@
 import newTask from "./newTask";
-import { deleteTask } from "./tasksController.js";
 
 function showTaskForm() {
   newTask();
   const addTaskButton = document.getElementById('add-project-button');
   addTaskButton.disabled = true;
 }
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
 function addTask() {
-  const addTaskButton = document.getElementById('add-task-button');
+  const projects = JSON.parse(localStorage.getItem('projects'));
+  const addTaskButton = document.getElementById('add-project-button');
   const taskItem = document.getElementById('task-item');
   const taskInput = document.getElementById('task-input');
   const task = taskInput.value;
-  // const tasksBody = document.getElementById('tasks-body');
   const tasksList = document.getElementById('tasks-list');
   tasksList.removeChild(taskItem);
-  const projects = JSON.parse(localStorage.getItem('projects'));
+  removeAllChildNodes(tasksList);
   const projectTitle = document.getElementById('projects-title');
   const name = projectTitle.textContent;
   const project = projects.find((project) => project.name === name);
   project.tasks.push({ title: task, description: 'New Description', dueDate: '2020-12-12', priority: 'High'});
   localStorage.setItem('projects', JSON.stringify(projects));
+  removeAllChildNodes(tasksList);
+  listTasks();
   addTaskButton.disabled = false;
   return task;
 }
@@ -87,13 +93,12 @@ function listTasks() {
     const name = projectTitle.textContent;
     const project = projects.find((project) => project.name === name);
     const tasks = project.tasks;
-    const task = this.getAttribute('id');
-    console.log(task);
     const index = tasks.findIndex((task) => task.title === this.getAttribute('id'));
     tasks.splice(index, 1);
     localStorage.setItem('projects', JSON.stringify(projects));
-    console.log(tasks);
+    removeAllChildNodes(tasksList);
+    listTasks();
   }
 }
 
-export { showTaskForm, addTask, listTasks, deleteTask }
+export { showTaskForm, addTask, listTasks, removeAllChildNodes }

@@ -1,7 +1,6 @@
 import { cancelAddTask } from './eventListeners';
 import { addTask } from './tasksController';
 function newTask() {
-  const projectContainer = document.getElementById('project-container');
   const tasksBody  = document.createElement('div');
   tasksBody.setAttribute('id', 'tasks-body');
   const taskItem = document.createElement('div');
