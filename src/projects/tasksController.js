@@ -44,9 +44,29 @@ function listTasks() {
     // build item header
     const itemHeader = document.createElement('div');
     itemHeader.classList.add('item-header');
+
+    // work on edit due date
+
     const taskDueDate = document.createElement('p');
     taskDueDate.textContent = task.dueDate;
     taskDueDate.classList.add('item-due-date');
+    const datePick = document.createElement('input');
+    datePick.setAttribute('type', 'date');
+    datePick.setAttribute('value', task.dueDate);
+    datePick.classList.add('date-input');
+    taskDueDate.addEventListener('click', () => {
+      taskDueDate.replaceWith(datePick);
+      datePick.addEventListener('change', () => {
+        task.dueDate = datePick.value;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        datePick.replaceWith(taskDueDate);
+        removeAllChildNodes(tasksList);
+        listTasks();
+      });
+    });
+    
+
+
     const taskDeleteBtn = document.createElement('button');
     taskDeleteBtn.textContent = '🗑️';
     taskDeleteBtn.classList.add('delete-task');
