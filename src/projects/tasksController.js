@@ -22,7 +22,8 @@ function addTask() {
   const projectTitle = document.getElementById('projects-title');
   const name = projectTitle.textContent;
   const project = projects.find((project) => project.name === name);
-  project.tasks.push({ title: task, description: 'New Description', dueDate: '2020-12-12', priority: 'High'});
+  const date = new Date();
+  project.tasks.push({ title: task, description: 'New Description', dueDate: date.toLocaleDateString(), priority: 'High'});
   localStorage.setItem('projects', JSON.stringify(projects));
   removeAllChildNodes(tasksList);
   listTasks();
@@ -57,14 +58,15 @@ function listTasks() {
     taskDueDate.addEventListener('click', () => {
       taskDueDate.replaceWith(datePick);
       datePick.addEventListener('change', () => {
-        task.dueDate = datePick.value;
+        const date = new Date(datePick.value);
+        task.dueDate = date.toLocaleDateString();
         localStorage.setItem('projects', JSON.stringify(projects));
         datePick.replaceWith(taskDueDate);
         removeAllChildNodes(tasksList);
         listTasks();
       });
     });
-    
+
 
 
     const taskDeleteBtn = document.createElement('button');
