@@ -52,7 +52,7 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
   max-width: 80%;
-  margin: 0 auto;
+  margin: 16px auto;
 }
 /* End css reset */
 
@@ -159,6 +159,7 @@ p, h1, h2, h3, h4, h5, h6 {
 #projects-header, .item-header {
   display: flex;
   flex: 1;
+  flex-wrap: wrap ;
   justify-content: space-between;
   align-items: center;
 }
