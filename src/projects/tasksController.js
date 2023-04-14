@@ -105,6 +105,9 @@ function listTasks() {
     taskPriority.addEventListener('click', () => {
       const priorityInput = document.createElement('select');
       priorityInput.classList.add('priority-input');
+      const select = document.createElement('option');
+      select.setAttribute('value', 'Select');
+      select.textContent = 'Select';
       const high = document.createElement('option');
       high.setAttribute('value', 'High');
       high.textContent = 'High';
@@ -114,6 +117,7 @@ function listTasks() {
       const low = document.createElement('option');
       low.setAttribute('value', 'Low');
       low.textContent = 'Low';
+      priorityInput.appendChild(select);
       priorityInput.appendChild(high);
       priorityInput.appendChild(medium);
       priorityInput.appendChild(low);
