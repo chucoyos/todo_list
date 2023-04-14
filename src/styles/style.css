@@ -137,13 +137,23 @@ p, h1, h2, h3, h4, h5, h6 {
 .pushable:focus:not(:focus-visible) {
   outline: none;
 }
+.header {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 80%;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  margin-top: 2rem;
+}
 #projects-container, #project-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
   max-width: 90%;
-  margin: 40px auto;
+  margin: 16px auto;
 }
 #projects-header, .item-header {
   display: flex;
