@@ -1,4 +1,5 @@
 import newTask from "./newTask";
+import { editProject } from "./projectsController";
 
 function showTaskForm() {
   newTask();
@@ -55,8 +56,18 @@ function listTasks() {
     datePick.setAttribute('type', 'date');
     datePick.setAttribute('value', task.dueDate);
     datePick.classList.add('date-input');
+
+
     taskDueDate.addEventListener('click', () => {
       taskDueDate.replaceWith(datePick);
+      taskDeleteBtn.textContent = '❌️';
+      taskDeleteBtn.removeEventListener('click', deleteTask, false);
+      taskEditBtn.textContent = '✔️';
+      taskDeleteBtn.addEventListener('click', () => {
+        datePick.replaceWith(taskDueDate);
+        taskDeleteBtn.textContent = '🗑️';
+        taskEditBtn.textContent = '✏️';
+      });
       datePick.addEventListener('change', () => {
         const date = new Date(datePick.value);
         task.dueDate = date.toLocaleDateString();
@@ -102,6 +113,31 @@ function listTasks() {
         listTasks();
       });
     });
+
+
+
+    taskEditBtn.addEventListener('click', () => {
+      taskDueDate.replaceWith(datePick);
+      taskDeleteBtn.textContent = '❌️';
+      taskDeleteBtn.removeEventListener('click', deleteTask, false);
+      taskEditBtn.textContent = '✔️';
+      taskDeleteBtn.addEventListener('click', () => {
+        datePick.replaceWith(taskDueDate);
+        taskDeleteBtn.textContent = '🗑️';
+        taskEditBtn.textContent = '✏️';
+      });
+      datePick.addEventListener('change', () => {
+        const date = new Date(datePick.value);
+        task.dueDate = date.toLocaleDateString();
+        localStorage.setItem('projects', JSON.stringify(projects));
+        datePick.replaceWith(taskDueDate);
+        removeAllChildNodes(tasksList);
+        listTasks();
+      });
+    });
+
+
+
 
     const taskDescription = document.createElement('div');
     taskDescription.classList.add('task-description');
