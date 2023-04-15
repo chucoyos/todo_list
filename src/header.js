@@ -6,7 +6,6 @@ function header() {
   header.appendChild(title);
   const root = document.getElementById('root');
   root.appendChild(header);
-  console.log('header');
   return header;
 }
 export default header;
