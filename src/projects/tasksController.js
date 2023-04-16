@@ -189,6 +189,8 @@ function listTasks() {
 
       descriptionInput.addEventListener('change', () => {
         task.description = descriptionInput.value;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        descriptionInput.replaceWith(taskDescription);
         removeAllChildNodes(tasksList);
         listTasks();
       });
