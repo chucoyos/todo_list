@@ -72,6 +72,7 @@ function listTasks() {
         const date = new Date(datePick.value);
         task.dueDate = date.toLocaleDateString();
         localStorage.setItem('projects', JSON.stringify(projects));
+        taskEditBtn.disabled = true;
         datePick.replaceWith(taskDueDate);
         removeAllChildNodes(tasksList);
         listTasks();
@@ -105,6 +106,23 @@ function listTasks() {
       titleInput.setAttribute('value', task.title);
       titleInput.classList.add('task-title');
       taskTitle.replaceWith(titleInput);
+      taskDeleteBtn.textContent = '❌️';
+      taskEditBtn.textContent = '✔️';
+      taskEditBtn.addEventListener('click', () => {
+        task.title = titleInput.value;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        titleInput.replaceWith(taskTitle);
+        removeAllChildNodes(tasksList);
+        listTasks();
+      });
+
+      taskDeleteBtn.removeEventListener('click', deleteTask, false);
+      taskDeleteBtn.addEventListener('click', () => {
+        titleInput.replaceWith(taskTitle);
+        taskDeleteBtn.textContent = '🗑️';
+        taskEditBtn.textContent = '✏️';
+      });
+
       titleInput.addEventListener('change', () => {
         task.title = titleInput.value;
         localStorage.setItem('projects', JSON.stringify(projects));
@@ -143,15 +161,34 @@ function listTasks() {
     taskDescription.classList.add('task-description');
     taskDescription.textContent = task.description;
     taskDescription.addEventListener('click', () => {
+      taskDeleteBtn.textContent = '❌️';
+      taskEditBtn.textContent = '✔️';
+      taskEditBtn.addEventListener('click', () => {
+        task.description = descriptionInput.value;
+        localStorage.setItem('projects', JSON.stringify(projects));
+        descriptionInput.replaceWith(taskDescription);
+        removeAllChildNodes(tasksList);
+        listTasks();
+      });
+      
+
       const descriptionInput = document.createElement('input');
+      taskDeleteBtn.removeEventListener('click', deleteTask, false);
       descriptionInput.setAttribute('type', 'text');
       descriptionInput.setAttribute('value', task.description);
       descriptionInput.classList.add('task-description');
       taskDescription.replaceWith(descriptionInput);
+
+
+      taskDeleteBtn.addEventListener('click', () => {
+        descriptionInput.replaceWith(taskDescription);
+        taskDeleteBtn.textContent = '🗑️';
+        taskEditBtn.textContent = '✏️';
+      });
+
+
       descriptionInput.addEventListener('change', () => {
         task.description = descriptionInput.value;
-        localStorage.setItem('projects', JSON.stringify(projects));
-        descriptionInput.replaceWith(taskDescription);
         removeAllChildNodes(tasksList);
         listTasks();
       });
