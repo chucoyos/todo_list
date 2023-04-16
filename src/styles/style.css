@@ -190,7 +190,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #projects-body .project-item {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: left;
   margin: 0.5rem;
@@ -306,6 +305,9 @@ p, h1, h2, h3, h4, h5, h6 {
 .hamburger-menu {
   display: none;
 }
+#tasks-list {
+  margin-bottom: 32px;
+}
 @media (max-width: 800px) {
   .nav-text {
     display: none;
@@ -319,5 +321,8 @@ p, h1, h2, h3, h4, h5, h6 {
   }
   #projects-container, #project-container {
     max-width: 100%;
+  }
+  .header {
+    max-width: 80%;
   }
 }
