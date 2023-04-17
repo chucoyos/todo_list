@@ -19,6 +19,9 @@ function addTask() {
   taskInput.setAttribute('required', 'required');
   taskInput.maxLength = 20;
   taskInput.minLength = 1;
+  if(taskInput.value === '') {
+    taskInput.value = 'Click here to add title';
+  }
   const task = taskInput.value;
   const tasksList = document.getElementById('tasks-list');
   tasksList.removeChild(taskItem);
