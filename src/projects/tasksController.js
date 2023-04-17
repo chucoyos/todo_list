@@ -181,7 +181,7 @@ function listTasks() {
       const descriptionInput = document.createElement('input');
       taskDeleteBtn.removeEventListener('click', deleteTask, false);
       descriptionInput.setAttribute('type', 'text');
-      descriptionInput.maxLength = 30;
+      descriptionInput.maxLength = 50;
       descriptionInput.setAttribute('value', task.description);
       descriptionInput.classList.add('task-description');
       taskDescription.replaceWith(descriptionInput);
