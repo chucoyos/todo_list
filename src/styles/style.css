@@ -180,7 +180,7 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-size: xx-large;
+  font-size: large;
 }
 #projects-body > ul {
   display: flex;
@@ -257,7 +257,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .task-description {
   display: flex;
   justify-content: start;
-  align-items: stretch;
+  margin-top: 8px;
 }
 .task-input-item {
   display: flex;
@@ -320,9 +320,40 @@ p, h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
   }
   #projects-container, #project-container {
-    max-width: 100%;
+    max-width: 90%;
   }
   .header {
     max-width: 80%;
   }
+  .task-description {
+    font-size: 12px;
+    overflow: hidden;
+  }
+  .title-container .task-title {
+    font-size: 12px;
+  }
+
+  .task-priority {
+    font-size: 12px;
+  }
+  #back-to-projects {
+    font-size: 12px;
+  }
+  .main-title {
+    font-size: 14px;
+  }
+  .project-item p.project-title {
+    font-size: 12px;
+  }
+  #projects-title {
+    font-size: 16px;
+  }
+  .front {
+    font-size: 12px;
+    padding: 4px 14px;
+  }
+  #project-input, #task-input {
+    font-size: 12px;
+  }
+  
 }

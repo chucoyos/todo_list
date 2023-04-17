@@ -19,6 +19,8 @@ const newProject = () => {
   projectInput.setAttribute('id', 'project-input');
   projectInput.setAttribute('type', 'text');
   projectInput.setAttribute('placeholder', 'Project name');
+  projectInput.maxLength = 20;
+  projectInput.setAttribute('required', 'required');
   newProjectContainer.appendChild(projectInput);
   newProjectContainer.appendChild(cancelProjectBtn);
   newProjectContainer.appendChild(newProjectBtn);

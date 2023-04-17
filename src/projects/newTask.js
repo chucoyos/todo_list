@@ -11,6 +11,9 @@ function newTask() {
   taskInput.setAttribute('placeholder', 'New Task');
   taskInput.classList.add('project-item');
   taskInput.setAttribute('id', 'task-input')
+  taskInput.maxLength = 24;
+  taskInput.minLength = 1;
+  taskInput.setAttribute('required', 'required');
   const addTaskButton = document.createElement('button');
   addTaskButton.textContent = '✔️';
   addTaskButton.setAttribute('id', 'add-task-button');

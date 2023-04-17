@@ -16,6 +16,9 @@ function addTask() {
   const addTaskButton = document.getElementById('add-project-button');
   const taskItem = document.getElementById('task-item');
   const taskInput = document.getElementById('task-input');
+  taskInput.setAttribute('required', 'required');
+  taskInput.maxLength = 20;
+  taskInput.minLength = 1;
   const task = taskInput.value;
   const tasksList = document.getElementById('tasks-list');
   tasksList.removeChild(taskItem);
@@ -23,8 +26,7 @@ function addTask() {
   const projectTitle = document.getElementById('projects-title');
   const name = projectTitle.textContent;
   const project = projects.find((project) => project.name === name);
-  const date = new Date();
-  project.tasks.push({ title: task, description: 'New Description', dueDate: date.toLocaleDateString(), priority: 'High'});
+  project.tasks.push({ title: task, description: 'Click here to add a description', dueDate: 'Add a due-date', priority: 'High'});
   localStorage.setItem('projects', JSON.stringify(projects));
   removeAllChildNodes(tasksList);
   listTasks();
@@ -105,6 +107,7 @@ function listTasks() {
       titleInput.setAttribute('type', 'text');
       titleInput.setAttribute('value', task.title);
       titleInput.classList.add('task-title');
+      titleInput.maxLength = 18;
       taskTitle.replaceWith(titleInput);
       taskDeleteBtn.textContent = '❌️';
       taskEditBtn.textContent = '✔️';
@@ -175,6 +178,7 @@ function listTasks() {
       const descriptionInput = document.createElement('input');
       taskDeleteBtn.removeEventListener('click', deleteTask, false);
       descriptionInput.setAttribute('type', 'text');
+      descriptionInput.maxLength = 30;
       descriptionInput.setAttribute('value', task.description);
       descriptionInput.classList.add('task-description');
       taskDescription.replaceWith(descriptionInput);
