@@ -308,7 +308,12 @@ p, h1, h2, h3, h4, h5, h6 {
 #tasks-list {
   margin-bottom: 32px;
 }
+.side-nav {
+  display: none;
+}
+ 
 @media (max-width: 800px) {
+  
   .nav-text {
     display: none;
   }
@@ -354,6 +359,41 @@ p, h1, h2, h3, h4, h5, h6 {
   }
   #project-input, #task-input {
     font-size: 12px;
+  }
+  .side-nav {
+    display: block;
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+    background-color: hsl(345deg 100% 47%);
+  }
+ 
+  #close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: white;
+  }
+  .close-nav {
+    position: absolute;
+    top: 4px;
+    right: 14px;
+    font-size: 24px;
+    margin-left: 50px;
+    color: white;
+  }
+  .app-info {
+    font-weight: bold;
+    margin-top: 64px;
   }
   
 }
